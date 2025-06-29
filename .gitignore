@@ -1,0 +1,6 @@
+backend/cat_expense_backend.egg-info
+
+.env
+.backend/.venv
+
+*__pycache__*
