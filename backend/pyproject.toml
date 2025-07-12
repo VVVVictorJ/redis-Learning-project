@@ -12,6 +12,7 @@ dependencies = [
     "python-jose[cryptography]",
     "python-multipart",
     "redis",
+    "pydantic[email]",
     "pydantic-settings",
     "alembic",
 ]

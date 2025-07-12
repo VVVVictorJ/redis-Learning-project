@@ -4,3 +4,17 @@ backend/cat_expense_backend.egg-info
 .backend/.venv
 
 *__pycache__*
+
+backend/alembic
+
+backend/node_modules
+
+frontend/dist
+
+frontend/.env
+
+frontend/.env.local
+
+frontend/.env.development.local/node_modules/*
+
+node_modules/*
