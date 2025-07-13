@@ -1,27 +1,91 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/Home.vue'
 import LoginView from '../views/Login.vue'
+import DefaultLayout from '../layouts/DefaultLayout.vue'
 import { useAuthStore } from '@/stores/auth'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: HomeView, // We will change this to a layout component later
-      meta: { requiresAuth: true },
-    },
-    {
       path: '/login',
       name: 'login',
       component: LoginView,
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import('../views/About.vue'),
+      path: '/',
+      component: DefaultLayout,
       meta: { requiresAuth: true },
+      children: [
+        {
+          path: '',
+          redirect: '/dashboard'
+        },
+        {
+          path: 'dashboard',
+          name: 'dashboard',
+          component: () => import('../views/Dashboard.vue'),
+        },
+        {
+          path: 'analytics',
+          name: 'analytics',
+          component: () => import('../views/About.vue'), // 暂时使用About页面
+        },
+        {
+          path: 'organization',
+          name: 'organization',
+          component: () => import('../views/About.vue'),
+        },
+        {
+          path: 'projects',
+          name: 'projects',
+          component: () => import('../views/About.vue'),
+        },
+        {
+          path: 'transactions',
+          name: 'transactions',
+          component: () => import('../views/About.vue'),
+        },
+        {
+          path: 'invoices',
+          name: 'invoices',
+          component: () => import('../views/About.vue'),
+        },
+        {
+          path: 'payments',
+          name: 'payments',
+          component: () => import('../views/About.vue'),
+        },
+        {
+          path: 'members',
+          name: 'members',
+          component: () => import('../views/About.vue'),
+        },
+        {
+          path: 'permissions',
+          name: 'permissions',
+          component: () => import('../views/About.vue'),
+        },
+        {
+          path: 'chat',
+          name: 'chat',
+          component: () => import('../views/About.vue'),
+        },
+        {
+          path: 'meetings',
+          name: 'meetings',
+          component: () => import('../views/About.vue'),
+        },
+        {
+          path: 'settings',
+          name: 'settings',
+          component: () => import('../views/About.vue'),
+        },
+        {
+          path: 'help',
+          name: 'help',
+          component: () => import('../views/About.vue'),
+        },
+      ],
     },
   ],
 })
@@ -43,8 +107,8 @@ router.beforeEach(async (to) => {
   }
 
   if (to.name === 'login' && isLoggedIn) {
-    // Redirect to home if already logged in
-    return { name: 'home' }
+    // Redirect to dashboard if already logged in
+    return { name: 'dashboard' }
   }
 })
 

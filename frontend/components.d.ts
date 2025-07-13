@@ -8,8 +8,11 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AccountsCard: typeof import('./src/components/dashboard/AccountsCard.vue')['default']
+    Card: typeof import('./src/components/ui/Card.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCard: typeof import('element-plus/es')['ElCard']
+    ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     ElForm: typeof import('element-plus/es')['ElForm']
     ElFormItem: typeof import('element-plus/es')['ElFormItem']
@@ -17,7 +20,12 @@ declare module 'vue' {
     ElInput: typeof import('element-plus/es')['ElInput']
     ElTabPane: typeof import('element-plus/es')['ElTabPane']
     ElTabs: typeof import('element-plus/es')['ElTabs']
+    ExpenseCard: typeof import('./src/components/dashboard/ExpenseCard.vue')['default']
+    Header: typeof import('./src/components/layout/Header.vue')['default']
+    RecentTransactionsCard: typeof import('./src/components/dashboard/RecentTransactionsCard.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Sidebar: typeof import('./src/components/layout/Sidebar.vue')['default']
+    UpcomingEventsCard: typeof import('./src/components/dashboard/UpcomingEventsCard.vue')['default']
   }
 }

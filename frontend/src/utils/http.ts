@@ -8,11 +8,11 @@ const http = axios.create({
 // Request interceptor
 http.interceptors.request.use(
   config => {
-    // Here you can add logic like adding an auth token to headers
-    // const token = localStorage.getItem('token');
-    // if (token) {
-    //   config.headers.Authorization = `Bearer ${token}`;
-    // }
+    // Add auth token to headers
+    const token = localStorage.getItem('access_token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
     return config;
   },
   error => {

@@ -28,7 +28,7 @@ export const useAuthStore = defineStore('auth', () => {
     const response = await http.post<Token>('/login/access-token', formData)
     setToken(response.data.access_token)
     await fetchCurrentUser()
-    await router.push('/')
+    await router.push('/dashboard')
   }
 
   async function register(userData: UserCreate) {
